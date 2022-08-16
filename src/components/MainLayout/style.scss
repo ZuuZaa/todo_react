@@ -1,0 +1,14 @@
+@use "assets/scss/colors";
+
+.main-layout {
+  position: relative;
+  min-height: 100vh;
+}
+
+#dark {
+  background-color: colors.$very-dark-blue;
+}
+
+#light {
+  background-color: colors.$light-grayish-blue-light-theme;
+}

@@ -1,10 +1,13 @@
+import MainLayout from "components/MainLayout";
+import { ThemeProvider } from "contexts/theme";
+
+
 function App() {
+
   return (
-    <div className="App">
-      <h1>
-to do
-</h1>
-    </div>
+    <ThemeProvider>
+      <MainLayout />
+    </ThemeProvider>
   );
 }
 

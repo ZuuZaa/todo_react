@@ -1,0 +1,54 @@
+@use "assets/scss/colors";
+
+.todo-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif !important;
+
+  .checkbox {
+    -webkit-appearance: none;
+    padding: 1rem;
+    margin-right: 2rem;
+    border-radius: 50%;
+  }
+
+  .text-input {
+    font-size: 1.8rem;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+#dark {
+  .todo-input {
+    background-color: colors.$very-dark-desaturated-blue;
+    .checkbox {
+      border: 1.2px solid colors.$very-dark-grayish-blue-2;
+    }
+    .text-input {
+      color: colors.$dark-grayish-blue;
+      background-color: colors.$very-dark-desaturated-blue;
+    }
+  }
+}
+
+#light {
+  .todo-input {
+    background-color: colors.$very-light-gray;
+    .checkbox {
+      border: 1.2px solid colors.$very-light-grayish-blue;
+    }
+    .text-input {
+      color: colors.$very-dark-grayish-blue-light-theme;
+      background-color: colors.$very-light-gray;
+      &::placeholder {
+        color: colors.$light-grayish-blue-light-theme;
+      }
+    }
+  }
+}
