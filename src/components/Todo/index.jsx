@@ -7,7 +7,7 @@ import { useTodo } from "contexts/todo";
 
 const Todo = () => {
 
-  const {todoList} = useTodo;
+  const {todoList} = useTodo();
   console.log("todo", todoList)
 
   return (

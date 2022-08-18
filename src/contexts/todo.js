@@ -14,7 +14,7 @@ const useTodo = () => {
 };
 
 const TodoProvider = ({ children }) => {
-    const [todoList, setTodoList] = useState([]);
+    const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem("todos")).todoList);
     return (
         <TodoContext.Provider value={[todoList, setTodoList]}>
             {children}
