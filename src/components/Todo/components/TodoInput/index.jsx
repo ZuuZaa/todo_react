@@ -13,10 +13,11 @@ const TodoInput = () => {
     e.preventDefault();
     const data = {
       id: new Date().getTime(),
-      todo,
+      content: todo,
       status: "pending",
     };
     newTodo(data);
+    e.target.reset();
   };
 
   return (

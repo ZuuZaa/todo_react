@@ -1,9 +1,9 @@
 import "./style.scss";
 
-const TodoTask = () => {
+const TodoTask = ({content, id}) => {
     return(
-        <div className="todo-task">
-            <h1>todo task</h1>
+        <div className="todo-task" id={id}>
+            <h1>{content}</h1>
             
         </div>
     )
