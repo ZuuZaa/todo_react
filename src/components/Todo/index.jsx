@@ -8,7 +8,7 @@ import { useTodo } from "contexts/todo";
 const Todo = () => {
 
   const {todoList} = useTodo();
-  console.log("todo", todoList)
+  localStorage.clear();
 
   return (
     <div className="todo">

@@ -6,7 +6,6 @@ import { useTheme } from "contexts/theme";
 const TodoHeader = () => {
 
     const { theme, toggleTheme } = useTheme();
-    console.log(theme);
 
     return (
         <div className="todo-header">
