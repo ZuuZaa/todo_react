@@ -1,4 +1,5 @@
 import { useTodo } from "contexts/todo";
+import TodoTask from "../TodoTask";
 import "./style.scss";
 
 const TodoList = () => {
@@ -7,8 +8,7 @@ const TodoList = () => {
     console.log("todo", todoList)
     return(
         <div className="todo-list">
-            <h1>todo list</h1>
-            
+            {todoList.map( item => <TodoTask value={item}/>)}
         </div>
     )
 };
