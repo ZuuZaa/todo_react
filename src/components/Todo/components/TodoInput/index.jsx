@@ -12,9 +12,8 @@ const TodoInput = () => {
   const formSubmit = (e) => {
     e.preventDefault();
     const data = {
-      id: new Date().getTime(),
       content: todo,
-      status: "pending",
+      status: false,
     };
     newTodo(data);
     e.target.reset();

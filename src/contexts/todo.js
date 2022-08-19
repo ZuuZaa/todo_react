@@ -5,12 +5,17 @@ const todoListFromLocalStorage = JSON.parse(localStorage.getItem("todos")) ? JSO
 
 const useTodo = () => {
     const [todoList, setTodoList] = useContext(TodoContext);
-    
+
     const newTodo = (value) => {
-        setTodoList( todoList => [...todoList, value]);
-        localStorage.setItem("todos", JSON.stringify({todoList}) );
+        setTodoList(todoList => [...todoList, value]);
+        localStorage.setItem("todos", JSON.stringify({ todoList }));
     };
-    return { todoList, newTodo };
+
+    const changeItemStatus = (index) => {
+        todoList[index].status = !todoList[index].status;
+    }
+
+    return { todoList, newTodo, changeItemStatus };
 };
 
 const TodoProvider = ({ children }) => {
