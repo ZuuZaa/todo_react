@@ -11,7 +11,7 @@ const TodoHeader = () => {
         <div className="todo-header">
             <h1>todo</h1>
             <img
-                src={theme=== "light" ? SunIcon : MoonIcon}
+                src={theme=== "dark" ? SunIcon : MoonIcon}
                 alt="toggle theme"
                 onClick={() => toggleTheme(theme === "dark" ? "light" : "dark")}
             />
