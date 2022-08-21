@@ -4,12 +4,11 @@ import "./style.scss";
 
 const TodoList = () => {
 
-    
     const { todoList } = useTodo();
 
     return (
         <div className="todo-list">
-            {todoList.map((item, index) =>  <TodoTask content={item.content} id={index} key={index} />)}
+            {todoList.map((item, index) => <TodoTask content={item.content} id={index} key={index} />)}
         </div>
     )
 };
