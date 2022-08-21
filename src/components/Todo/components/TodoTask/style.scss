@@ -12,11 +12,11 @@
       display: block;
     }
     .border {
-        background-image: linear-gradient(
-            to bottom right,
-            colors.$start-linear-gradient,
-            colors.$end-linear-gradient
-          );
+      background-image: linear-gradient(
+        to bottom right,
+        colors.$start-linear-gradient,
+        colors.$end-linear-gradient
+      );
     }
   }
   .border {
@@ -35,22 +35,13 @@
       padding: 1rem;
       border-radius: 50%;
       cursor: pointer;
-
-      &:checked {
-        background-image: linear-gradient(
-            to bottom right,
-            colors.$start-linear-gradient,
-            colors.$end-linear-gradient
-          );
-      }
-    }    
+    }
     .check-icon {
-        position: absolute;
-        display: inline-block;
-        z-index: 2;
-        display: none;
-      }
-
+      position: absolute;
+      display: inline-block;
+      z-index: 2;
+      display: none;
+    }
   }
 
   .cross-icon {
@@ -58,6 +49,23 @@
     margin-right: 2rem;
     display: none;
     cursor: pointer;
+  }
+}
+
+.checked {
+  text-decoration: line-through;
+  .border {
+    background-image: linear-gradient(
+      to bottom right,
+      colors.$start-linear-gradient,
+      colors.$end-linear-gradient
+    );
+    .todo-check {
+      opacity: 0;
+    }
+    .check-icon {
+      display: block;
+    }
   }
 }
 
@@ -73,6 +81,9 @@
       }
     }
   }
+  .checked {
+    color: colors.$dark-grayish-blue;
+  }
 }
 
 #light {
@@ -86,5 +97,8 @@
         background-color: colors.$very-light-gray;
       }
     }
+  }
+  .checked {
+    color: colors.$light-grayish-blue-light-theme;
   }
 }

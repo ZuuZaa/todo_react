@@ -11,11 +11,16 @@ const useTodo = () => {
         localStorage.setItem("todos", JSON.stringify({ todoList }));
     };
 
-    const changeItemStatus = (index) => {
-        todoList[index].status = !todoList[index].status;
+    const changeItemStatus = (index) =>  todoList[index].status = !todoList[index].status;
+
+
+    const deleteItem = (index) => {
+        todoList.splice(index, 1);
+        setTodoList([...todoList])
+        console.log("delete", todoList)
     }
 
-    return { todoList, newTodo, changeItemStatus };
+    return { todoList, newTodo, changeItemStatus, deleteItem };
 };
 
 const TodoProvider = ({ children }) => {
