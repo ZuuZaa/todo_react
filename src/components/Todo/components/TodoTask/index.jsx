@@ -2,34 +2,30 @@ import "./style.scss";
 import CheckIcon from "../../../../assets/icons/icon-check.svg";
 import CrossIcon from "../../../../assets/icons/icon-cross.svg";
 import { useTodo } from "contexts/todo";
-import { useRef} from "react";
+import {useState} from "react";
 
-const TodoTask = ({ content, checked, setChecked, id}) => {
-  const checkbox = useRef();
+const TodoTask = ({ content, id}) => {
   const { todoList } = useTodo();
-  console.log(todoList)
-
+  const [checked, setChecked] = useState(false);
   const { changeItemStatus, deleteItem } = useTodo();
+  console.log("todo", todoList)
 
-  const taskClickHandler = (id) => {
+  const toggleCheckbox = () => {
+    setChecked(!checked)
     changeItemStatus(id);
-    setChecked(old => ({ ...old, [id]: !old[id] }));
-    console.log("checked",checked)
-
-  } 
+  }
 
   const deleteTask = (e) => {
-    e.stopPropagation();
     deleteItem(e.target.parentElement.id);
   };
 
   return (
-    <div className= {todoList[id].status ? "checked todo-task" :"todo-task"} id={id} onClick={(e) => taskClickHandler(e.target.id) }  >
+    <div className= {todoList[id].status ? "checked todo-task" :"todo-task"} id={id}  >
       <div className="border">
-        <div className="todo-check"/>
-        <img src={CheckIcon} className="check-icon" alt="check icon"  />
+        <input type="checkbox" className="todo-check" checked={todoList[id].status} onChange={()=> toggleCheckbox()}/>
+        <img src={CheckIcon} className="check-icon" alt="check icon" onClick={()=> toggleCheckbox()}/>
       </div>
-      <div>{content}</div>
+      <div className="todo-content" onClick={()=>toggleCheckbox()}>{content}</div>
       <img
         src={CrossIcon}
         alt="cross icon"

@@ -7,8 +7,6 @@ import TodoFooter from "./components/TodoFooter";
 
 const Todo = () => {
 
-  localStorage.clear();
-
   return (
     <div className="todo">
       <div className="todo-container">

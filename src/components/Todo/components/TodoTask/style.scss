@@ -3,7 +3,6 @@
 .todo-task {
   display: flex;
   align-items: center;
-  cursor: pointer;
   &:first-child {
     border-radius: 0.5rem 0.5rem 0 0;
   }
@@ -35,6 +34,16 @@
       padding: 1rem;
       border-radius: 50%;
       cursor: pointer;
+      &:checked {
+        background-image: linear-gradient(
+          to bottom right,
+          colors.$start-linear-gradient,
+          colors.$end-linear-gradient
+        );
+        & ~ img {
+          display:block;
+        }
+      }
     }
     .check-icon {
       position: absolute;
@@ -42,6 +51,10 @@
       z-index: 2;
       display: none;
     }
+  }
+  .todo-content {
+    cursor: pointer;
+    width: 100%;
   }
 
   .cross-icon {

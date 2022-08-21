@@ -7,17 +7,20 @@ const useTodo = () => {
     const [todoList, setTodoList] = useContext(TodoContext);
 
     const newTodo = (value) => {
+        console.log("initial",todoListFromLocalStorage)
         setTodoList(todoList => [...todoList, value]);
         localStorage.setItem("todos", JSON.stringify({ todoList }));
     };
 
-    const changeItemStatus = (index) =>  todoList[index].status = !todoList[index].status;
-
+    const changeItemStatus = (index) => {
+        todoList[index].status = !todoList[index].status;
+        localStorage.setItem("todos", JSON.stringify({ todoList }));
+    } 
 
     const deleteItem = (index) => {
         todoList.splice(index, 1);
-        setTodoList([...todoList])
-        console.log("delete", todoList)
+        setTodoList([...todoList]);
+        localStorage.setItem("todos", JSON.stringify({ todoList }));
     }
 
     return { todoList, newTodo, changeItemStatus, deleteItem };
