@@ -3,21 +3,24 @@
 .todo-task {
   display: flex;
   align-items: center;
+
   &:first-child {
     border-radius: 0.5rem 0.5rem 0 0;
   }
+
   &:hover {
     .cross-icon {
-      display: block;
+      opacity: 1;
+      transition: all .3s ease-in-out;
     }
+
     .border {
-      background-image: linear-gradient(
-        to bottom right,
-        colors.$start-linear-gradient,
-        colors.$end-linear-gradient
-      );
+      background-image: linear-gradient(to bottom right,
+          colors.$start-linear-gradient,
+          colors.$end-linear-gradient );
     }
   }
+
   .border {
     margin: 2rem;
     padding: 0.1rem;
@@ -34,17 +37,17 @@
       padding: 1rem;
       border-radius: 50%;
       cursor: pointer;
+
       &:checked {
-        background-image: linear-gradient(
-          to bottom right,
-          colors.$start-linear-gradient,
-          colors.$end-linear-gradient
-        );
-        & ~ img {
-          display:block;
+        background-image: linear-gradient(to bottom right,
+            colors.$start-linear-gradient,
+            colors.$end-linear-gradient );
+        &~img {
+          display: block;
         }
       }
     }
+
     .check-icon {
       position: absolute;
       display: inline-block;
@@ -52,6 +55,7 @@
       display: none;
     }
   }
+
   .todo-content {
     cursor: pointer;
     width: 100%;
@@ -60,22 +64,24 @@
   .cross-icon {
     margin-left: auto;
     margin-right: 2rem;
-    display: none;
+    opacity: 0;
     cursor: pointer;
   }
 }
 
 .checked {
   text-decoration: line-through;
+  text-decoration-thickness: .05rem;
+
   .border {
-    background-image: linear-gradient(
-      to bottom right,
-      colors.$start-linear-gradient,
-      colors.$end-linear-gradient
-    );
+    background-image: linear-gradient(to bottom right,
+        colors.$start-linear-gradient,
+        colors.$end-linear-gradient );
+
     .todo-check {
       opacity: 0;
     }
+
     .check-icon {
       display: block;
     }
@@ -87,15 +93,19 @@
     color: colors.$light-grayish-blue;
     background-color: colors.$very-dark-desaturated-blue;
     border-bottom: 0.1rem solid colors.$very-dark-grayish-blue-2;
+
     .border {
       background-color: colors.$very-dark-grayish-blue-2;
+
       .todo-check {
         background-color: colors.$very-dark-desaturated-blue;
       }
     }
   }
+
   .checked {
-    color: colors.$dark-grayish-blue;
+    color: colors.$very-dark-grayish-blue-1;
+    text-decoration-color: colors.$dark-grayish-blue;
   }
 }
 
@@ -104,14 +114,26 @@
     color: colors.$very-dark-grayish-blue-light-theme;
     background-color: colors.$very-light-gray;
     border-bottom: 0.1rem solid colors.$very-light-grayish-blue;
+
     .border {
       background-color: colors.$very-light-grayish-blue;
+
       .todo-check {
         background-color: colors.$very-light-gray;
       }
     }
   }
+
   .checked {
-    color: colors.$light-grayish-blue-light-theme;
+    color: colors.$light-grayish-blue;
+    text-decoration-color: colors.$dark-grayish-blue-light-theme;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .todo-task {
+    &:last-child {
+      box-shadow: 0px 24px 32px 5px colors.$light-grayish-blue-light-theme;
+    }
   }
 }

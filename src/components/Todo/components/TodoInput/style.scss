@@ -10,7 +10,6 @@
   .checkbox {
     -webkit-appearance: none;
     padding: 1rem;
-    margin-right: 2rem;
     border-radius: 50%;
     margin: 2rem;
   }
@@ -20,6 +19,7 @@
     line-height: 5rem;
     border: none;
     width: 100%;
+    background-color: transparent;
     &:focus {
       outline: none;
     }
@@ -34,7 +34,6 @@
     }
     .text-input {
       color: colors.$dark-grayish-blue;
-      background-color: colors.$very-dark-desaturated-blue;
     }
   }
 }
@@ -47,10 +46,17 @@
     }
     .text-input {
       color: colors.$very-dark-grayish-blue-light-theme;
-      background-color: colors.$very-light-gray;
       &::placeholder {
         color: colors.$light-grayish-blue-light-theme;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .todo-input {
+    .checkbox {
+      margin: 1.2rem;
     }
   }
 }
