@@ -1,12 +1,12 @@
-import MainLayout from "components/MainLayout";
 import { ThemeProvider } from "contexts/theme";
+import { Routing } from "routing";
 
 
 function App() {
 
   return (
     <ThemeProvider>
-      <MainLayout />
+      <Routing />
     </ThemeProvider>
   );
 }

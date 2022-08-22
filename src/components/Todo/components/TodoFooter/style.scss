@@ -1,6 +1,7 @@
 @use "assets/scss/colors";
 
 .todo-footer {
+  user-select: none;
   .top-container, .bottom-container {
     padding: 2rem;
   }
@@ -10,7 +11,6 @@
   border-radius: 0 0 .5rem .5rem;
   color: colors.$dark-grayish-blue;
   .items-left {
-    user-select: none;
     .left {
       padding-right: .5rem;
     }

@@ -23,7 +23,17 @@ const useTodo = () => {
         localStorage.setItem("todos", JSON.stringify({ todoList }));
     }
 
-    return { todoList, newTodo, changeItemStatus, deleteItem };
+    const filteredTodos= () => {
+        const completed = todoList.filter(item => item.status);
+        const active = todoList.filter(item => !item.status)
+        const leftItems = active.length;
+        return { completed, active, leftItems}
+    }
+
+    const activeTodos = () => todoList.filter(item => !item.status);
+    const completedTodos = () => todoList.filter(item => item.status);
+
+    return { todoList, newTodo, changeItemStatus, deleteItem, filteredTodos, activeTodos, completedTodos };
 };
 
 const TodoProvider = ({ children }) => {

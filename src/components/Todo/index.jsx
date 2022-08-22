@@ -1,8 +1,9 @@
 import "./style.scss";
 import TodoHeader from "./components/TodoHeader";
 import TodoInput from "./components/TodoInput";
-import TodoList from "./components/TodoList";
 import TodoFooter from "./components/TodoFooter";
+import { Outlet } from "react-router-dom";
+
 
 const Todo = () => {
 
@@ -11,8 +12,8 @@ const Todo = () => {
       <div className="todo-container">
         <TodoHeader />
         <TodoInput />
-        <TodoList />
-        <TodoFooter />
+        <Outlet />
+        <TodoFooter/>
       </div>
     </div>
   );

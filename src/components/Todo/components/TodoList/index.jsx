@@ -1,14 +1,13 @@
-import { useTodo } from "contexts/todo";
-import TodoTask from "../TodoTask";
-import "./style.scss";
+import TodoTask from "components/Todo/components/TodoTask";
 
-const TodoList = () => {
 
-    const { todoList } = useTodo();
-
+const TodoList = ({data}) => {
+ 
+    console.log("list",data)
+    
     return (
         <div className="todo-list">
-            {todoList.map((item, index) => <TodoTask content={item.content} id={index} key={index} />)}
+            {data.map((item, index) => <TodoTask content={item.content} id={index} key={index} data={data}/>)}
         </div>
     )
 };

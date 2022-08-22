@@ -53,6 +53,7 @@
       display: inline-block;
       z-index: 2;
       display: none;
+      cursor: pointer;
     }
   }
 
@@ -130,10 +131,3 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .todo-task {
-    &:last-child {
-      box-shadow: 0px 24px 32px 5px colors.$light-grayish-blue-light-theme;
-    }
-  }
-}

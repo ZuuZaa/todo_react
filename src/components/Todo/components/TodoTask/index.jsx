@@ -4,9 +4,8 @@ import CrossIcon from "../../../../assets/icons/icon-cross.svg";
 import { useTodo } from "contexts/todo";
 import { useState } from "react";
 
-const TodoTask = ({ content, id }) => {
+const TodoTask = ({ content, id, data}) => {
   
-  const { todoList } = useTodo();
   const [checked, setChecked] = useState(false);
   const { changeItemStatus, deleteItem } = useTodo();
 
@@ -20,9 +19,9 @@ const TodoTask = ({ content, id }) => {
   };
 
   return (
-    <div className={todoList[id].status ? "checked todo-task" : "todo-task"} id={id}  >
+    <div className={data[id].status ? "checked todo-task" : "todo-task"} id={id}  >
       <div className="border">
-        <input type="checkbox" className="todo-check" checked={todoList[id].status} onChange={() => toggleCheckbox()} />
+        <input type="checkbox" className="todo-check" checked={data[id].status} onChange={() => toggleCheckbox()} />
         <img src={CheckIcon} className="check-icon" alt="check icon" onClick={() => toggleCheckbox()} />
       </div>
       <div className="todo-content" onClick={() => toggleCheckbox()}>{content}</div>
