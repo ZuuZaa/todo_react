@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import MainLayout from "components/MainLayout"
-import { AllTodos } from "components/Todo/pages/All";
-import { ActiveTodos } from "components/Todo/pages/Active";
-import { CompletesTodos } from "components/Todo/pages/Completed";
+import MainLayout from "components/MainLayout";
+import { ActiveTodos, AllTodos, CompletesTodos } from "components/Todo/pages";
 
 export const Routing = () => {
 

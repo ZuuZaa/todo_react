@@ -7,33 +7,29 @@ const useTodo = () => {
     const [todoList, setTodoList] = useContext(TodoContext);
 
     const newTodo = (value) => {
-        console.log("initial",todoListFromLocalStorage)
         setTodoList(todoList => [...todoList, value]);
         localStorage.setItem("todos", JSON.stringify({ todoList }));
     };
 
-    const changeItemStatus = (index) => {
-        todoList[index].status = !todoList[index].status;
+    const changeItemStatus = (id) => {
+        const itemToChange = todoList.filter(item => item.id === id );
+        itemToChange[0].status = !itemToChange[0].status;
+        setTodoList([...todoList]);
         localStorage.setItem("todos", JSON.stringify({ todoList }));
     } 
 
-    const deleteItem = (index) => {
+    const deleteItem = (id) => {
+        const index = todoList.findIndex(item => item.id === id)
         todoList.splice(index, 1);
         setTodoList([...todoList]);
         localStorage.setItem("todos", JSON.stringify({ todoList }));
     }
 
-    const filteredTodos= () => {
-        const completed = todoList.filter(item => item.status);
-        const active = todoList.filter(item => !item.status)
-        const leftItems = active.length;
-        return { completed, active, leftItems}
-    }
-
+    const leftItems = () => todoList.filter(item => !item.status).length;
     const activeTodos = () => todoList.filter(item => !item.status);
     const completedTodos = () => todoList.filter(item => item.status);
 
-    return { todoList, newTodo, changeItemStatus, deleteItem, filteredTodos, activeTodos, completedTodos };
+    return { todoList, newTodo, changeItemStatus, deleteItem, leftItems, activeTodos, completedTodos };
 };
 
 const TodoProvider = ({ children }) => {

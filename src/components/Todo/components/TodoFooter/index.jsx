@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import "./style.scss";
 
 const TodoFooter = () => {
-    const { filteredTodos } = useTodo();
-    const left = filteredTodos().leftItems;
 
+    const { leftItems } = useTodo();
+    
     return (
         <div className="todo-footer">
             <div className="mobile-footer">
                 <div className="top-container">
                     <div className="items-left">
-                        <span className="left">{left}</span>
+                        <span className="left">{leftItems()}</span>
                         <span>items left</span>
                     </div>
                     <div className="clear-completed">clear completed</div>

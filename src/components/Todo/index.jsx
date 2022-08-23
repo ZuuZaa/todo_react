@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom";
 
 
 const Todo = () => {
+  localStorage.clear()
 
   return (
     <div className="todo">

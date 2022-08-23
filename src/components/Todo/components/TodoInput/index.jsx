@@ -3,19 +3,19 @@ import { useState } from "react";
 import "./style.scss";
 
 const TodoInput = () => {
-  const [todo, setTodo] = useState("");
+
+  const [todo, setTodo] = useState({});
   const { newTodo } = useTodo();
+  const id = new Date().getTime();
 
   const handleChange = () => (event) => {
-    setTodo(event.target.value);
-  };
+    const data = {id, content: event.target.value, status: false};
+    setTodo(data);
+  }
+
   const formSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      content: todo,
-      status: false,
-    };
-    newTodo(data);
+    newTodo(todo);
     e.target.reset();
   };
 
