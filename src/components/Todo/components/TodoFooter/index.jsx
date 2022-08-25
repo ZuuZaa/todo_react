@@ -4,8 +4,8 @@ import "./style.scss";
 
 const TodoFooter = () => {
 
-    const { leftItems } = useTodo();
-    
+    const { leftItems, clearCompleted } = useTodo();
+
     return (
         <div className="todo-footer">
             <div className="mobile-footer">
@@ -14,7 +14,7 @@ const TodoFooter = () => {
                         <span className="left">{leftItems()}</span>
                         <span>items left</span>
                     </div>
-                    <div className="clear-completed">clear completed</div>
+                    <div className="clear-completed" onClick={()=> clearCompleted()}>clear completed</div>
                 </div>
                 <div className="bottom-container">
                     <ul>

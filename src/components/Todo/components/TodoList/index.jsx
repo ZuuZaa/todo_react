@@ -4,7 +4,7 @@ const TodoList = ({data}) => {
 
     return (
         <div className="todo-list">
-            {data.map((item) => <TodoTask content={item.content} id={item.id} key={item.id} data={data}/>)}
+            {data.map((item) => <TodoTask content={item.content} id={item.id} status={item.status} key={item.id}/>)}
         </div>
     )
 };
