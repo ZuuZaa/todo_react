@@ -1,10 +1,16 @@
 import { useTodo } from "contexts/todo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.scss";
 
 const TodoFooter = () => {
 
     const { leftItems, clearCompleted } = useTodo();
+    const navigate = useNavigate()
+
+    const clickHandler = () => {
+        clearCompleted();
+        navigate("/")
+    }
 
     return (
         <div className="todo-footer">
@@ -14,7 +20,7 @@ const TodoFooter = () => {
                         <span className="left">{leftItems()}</span>
                         <span>items left</span>
                     </div>
-                    <div className="clear-completed" onClick={()=> clearCompleted()}>clear completed</div>
+                    <div className="clear-completed" onClick={clickHandler}>clear completed</div>
                 </div>
                 <div className="bottom-container">
                     <ul>

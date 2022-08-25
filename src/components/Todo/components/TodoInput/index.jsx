@@ -1,5 +1,6 @@
 import { useTodo } from "contexts/todo";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
 const TodoInput = () => {
@@ -7,6 +8,7 @@ const TodoInput = () => {
   const [todo, setTodo] = useState({});
   const { newTodo } = useTodo();
   const id = new Date().getTime();
+  const navigate = useNavigate();
 
   const handleChange = () => (event) => {
     const data = {id, content: event.target.value, status: false};
@@ -17,6 +19,7 @@ const TodoInput = () => {
     e.preventDefault();
     newTodo(todo);
     e.target.reset();
+    navigate("/");
   };
 
   return (
