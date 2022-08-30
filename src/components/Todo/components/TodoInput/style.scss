@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   font-family: "Josefin Sans", sans-serif !important;
+  margin: 2rem 0;
 
   .checkbox {
     -webkit-appearance: none;
@@ -16,7 +17,7 @@
 
   .text-input {
     font-size: 1.8rem;
-    line-height: 5rem;
+    font-family: "Josefin Sans", sans-serif;    line-height: 5rem;
     border: none;
     width: 100%;
     background-color: transparent;
@@ -55,8 +56,12 @@
 
 @media only screen and (max-width: 600px) {
   .todo-input {
+    margin: 1.5rem 0;
     .checkbox {
       margin: 1.2rem;
+    }
+    .text-input {
+      font-size: 1.4rem;
     }
   }
 }

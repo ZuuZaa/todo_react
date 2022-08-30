@@ -1,3 +1,4 @@
+import "./style.scss";
 import TodoTask from "components/Todo/components/TodoTask";
 import _ from "lodash";
 import NoData from "../NoData";

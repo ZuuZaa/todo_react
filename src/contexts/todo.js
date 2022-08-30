@@ -7,8 +7,9 @@ const useTodo = () => {
     const [todoList, setTodoList] = useContext(TodoContext);
 
     const newTodo = (value) => {
-        setTodoList(todoList => [...todoList, value]);
+        setTodoList([...todoList, value]);
         localStorage.setItem("todos", JSON.stringify({ todoList }));
+        console.log("new",todoList)
     };
 
     const changeItemStatus = (id) => {

@@ -2,6 +2,7 @@
 
 .todo-footer {
   user-select: none;
+  margin-bottom: 2rem;
 
   .top-container,
   .bottom-container {
@@ -91,7 +92,8 @@
   .todo-footer {
     .top-container,
     .bottom-container {
-      box-shadow: 0px 24px 32px 5px colors.$light-grayish-blue-light-theme;
+      //box-shadow: 0px 24px 32px 5px colors.$light-grayish-blue-light-theme;
+      box-shadow:  0px 159px 234px 37px colors.$light-grayish-blue-light-theme;
     }
 
     &:last-child {

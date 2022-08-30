@@ -4,10 +4,7 @@ const ThemeContext = createContext(null);
 
 const useTheme = () => {
     const [theme, setTheme] = useContext(ThemeContext);
-    const toggleTheme = (value) => {
-        setTheme(value);
-    };
-
+    const toggleTheme = () => theme === "light" ? setTheme("dark") : setTheme("light");
     return { theme, toggleTheme };
 };
 

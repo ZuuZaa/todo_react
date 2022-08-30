@@ -9,11 +9,6 @@
   }
 
   &:hover {
-    .cross-icon {
-      opacity: 1;
-      transition: all .3s ease-in-out;
-    }
-
     .border {
       background-image: linear-gradient(to bottom right,
           colors.$start-linear-gradient,
@@ -131,3 +126,28 @@
   }
 }
 
+
+
+
+
+@media only screen and (max-width: 600px) {
+  .todo-task {
+    .cross-icon{
+      opacity: 1;
+      height: 1.2rem;
+    }
+  }
+}
+@media only screen and (min-width: 600px) {
+  .todo-task {
+    .cross-icon{
+      opacity: 0;
+    }
+    &:hover {
+      .cross-icon {
+        opacity: 1;
+        transition: all .3s ease-in-out;
+      }
+    }
+  }
+}
