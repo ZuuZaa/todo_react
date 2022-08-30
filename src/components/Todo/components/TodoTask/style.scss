@@ -127,9 +127,6 @@
 }
 
 
-
-
-
 @media only screen and (max-width: 600px) {
   .todo-task {
     .cross-icon{
@@ -146,7 +143,6 @@
     &:hover {
       .cross-icon {
         opacity: 1;
-        transition: all .3s ease-in-out;
       }
     }
   }

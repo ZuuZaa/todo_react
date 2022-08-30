@@ -17,3 +17,10 @@
     background-color: colors.$very-dark-desaturated-blue;
     border-bottom: 0.1rem solid colors.$very-dark-grayish-blue-2;
 }
+
+@media only screen and (max-width: 600px) {
+    .no-data {
+        font-size: 1.4rem;
+        padding: 1.4rem;
+    }
+  }
