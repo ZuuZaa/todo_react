@@ -1,7 +1,5 @@
 @use "../../../../assets/scss/colors.scss";
 
-
-
 .no-data {
     text-align: center;
     border-radius: 0.5rem 0.5rem 0 0;
@@ -13,4 +11,9 @@
     color: colors.$dark-grayish-blue-light-theme;
     background-color: colors.$very-light-gray;
     border-bottom: 0.1rem solid colors.$very-light-grayish-blue;
+}
+#dark .no-data {
+    color: colors.$light-grayish-blue;
+    background-color: colors.$very-dark-desaturated-blue;
+    border-bottom: 0.1rem solid colors.$very-dark-grayish-blue-2;
 }
