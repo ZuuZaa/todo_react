@@ -11,12 +11,12 @@
   .top-container {
     display: flex;
     justify-content: space-between;
-    border-radius: 0 0 .5rem .5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
     color: colors.$dark-grayish-blue;
 
     .items-left {
       .left {
-        padding-right: .5rem;
+        padding-right: 0.5rem;
       }
     }
 
@@ -26,7 +26,7 @@
 
       &:hover {
         color: colors.$very-dark-grayish-blue-light-theme;
-        transition: all .3s ease-in-out;
+        transition: all 0.3s ease-in-out;
       }
     }
   }
@@ -35,7 +35,7 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
 
     ul {
       list-style: none;
@@ -43,6 +43,10 @@
 
       li {
         padding: 0 1.2rem;
+        text-transform: capitalize;
+        font-size: 1.4rem;
+        font-weight: 700;
+        cursor: pointer;
 
         a {
           text-decoration: none;
@@ -51,14 +55,9 @@
 
       .footer-link {
         color: colors.$dark-grayish-blue-light-theme;
-        text-transform: capitalize;
-        font-size: 1.4rem;
-        font-weight: 700;
-        cursor: pointer;
-
         &:hover {
           color: colors.$very-dark-grayish-blue-light-theme;
-          transition: all .3s ease-in-out;
+          transition: all 0.3s ease-in-out;
         }
       }
 
@@ -67,7 +66,7 @@
 
         &:hover {
           color: colors.$dark-blue;
-          transition: all .3s ease-in-out;
+          transition: all 0.3s ease-in-out;
         }
       }
     }
@@ -75,7 +74,6 @@
 }
 
 #dark {
-
   .top-container,
   .bottom-container {
     background-color: colors.$very-dark-desaturated-blue;
@@ -83,7 +81,6 @@
 }
 
 #light {
-
   .top-container,
   .bottom-container {
     background-color: colors.$very-light-gray;
@@ -92,7 +89,6 @@
 
 @media only screen and (max-width: 600px) {
   .todo-footer {
-
     .top-container,
     .bottom-container {
       box-shadow: 0px 24px 32px 5px colors.$light-grayish-blue-light-theme;

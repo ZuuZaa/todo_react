@@ -1,0 +1,16 @@
+@use "../../../../assets/scss/colors.scss";
+
+
+
+.no-data {
+    text-align: center;
+    border-radius: 0.5rem 0.5rem 0 0;
+    font-size: 1.8rem;
+    padding: 2rem;
+}
+
+#light .no-data {
+    color: colors.$dark-grayish-blue-light-theme;
+    background-color: colors.$very-light-gray;
+    border-bottom: 0.1rem solid colors.$very-light-grayish-blue;
+}
