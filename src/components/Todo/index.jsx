@@ -8,15 +8,15 @@ import { useTodo } from "contexts/todo";
 
 
 const Todo = () => {
-  const {todoList} = useTodo();
+  const { todoList } = useTodo();
 
   return (
     <div className="todo">
       <div className="todo-container">
         <TodoHeader />
         <TodoInput />
-        {!_.isEmpty(todoList) && <Outlet />}
-        {!_.isEmpty(todoList) && <TodoFooter/>}
+          {!_.isEmpty(todoList) && <Outlet />}
+        {!_.isEmpty(todoList) && <TodoFooter />}
       </div>
     </div>
   );

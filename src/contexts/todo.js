@@ -31,11 +31,24 @@ const useTodo = () => {
         localStorage.setItem("todos", JSON.stringify({ todoList }));
     }
 
+    const reorderList = (dragIndex, dragOverIndex) => {
+        const copyListItems = [...todoList];
+      //  console.log("copy", copyListItems);
+        const dragItem = copyListItems[dragIndex];
+        copyListItems.splice(dragIndex, 1);
+       // console.log("pop",[...copyListItems] );
+        console.log("dragOver", dragOverIndex)
+        copyListItems.splice(dragOverIndex, 0, dragItem);
+        console.log("push",[...copyListItems] );
+       // console.log("reorder", copyListItems);
+        setTodoList([...copyListItems]);
+    }
+
     const leftItems = () => todoList.filter(item => !item.status).length;
     const activeTodos = () => todoList.filter(item => !item.status);
     const completedTodos = () => todoList.filter(item => item.status);
 
-    return { todoList, newTodo, changeItemStatus, deleteItem, clearCompleted, leftItems, activeTodos, completedTodos };
+    return { todoList, newTodo, changeItemStatus, deleteItem, clearCompleted, reorderList, leftItems, activeTodos, completedTodos };
 };
 
 const TodoProvider = ({ children }) => {

@@ -3,6 +3,7 @@
 .todo-task {
   display: flex;
   align-items: center;
+  cursor: move;
 
   &:first-child {
     border-radius: 0.5rem 0.5rem 0 0;

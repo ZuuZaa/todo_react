@@ -1,11 +1,10 @@
 import { useTodo } from "contexts/todo";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./style.scss";
 
 const TodoFooter = () => {
   const { leftItems, clearCompleted, completedTodos } = useTodo();
   const navigate = useNavigate();
-  console.log(completedTodos.length);
 
   const footerLinks = [
     { name: "all", path: "/" },
