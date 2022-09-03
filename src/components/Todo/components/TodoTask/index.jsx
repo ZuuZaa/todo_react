@@ -2,49 +2,18 @@ import "./style.scss";
 import CheckIcon from "../../../../assets/icons/icon-check.svg";
 import CrossIcon from "../../../../assets/icons/icon-cross.svg";
 import { useTodo } from "contexts/todo";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const TodoTask = ({ content, status, id, index }) => {
 
-  const { reorderList, changeItemStatus, deleteItem } = useTodo();
-  const [dragItem, setDragItem] = useState(null);
-  const [dragOverItem, setDragOverItem] = useState(null);
-
-  const dragStart = (e) => {
-    setDragItem(e.target.getAttribute("index"));
-    console.log("start", dragItem);
-  };
-
-  const dragEnter = (e) => {
-    setDragOverItem(e.target.getAttribute("index"));
-    console.log("enter", dragOverItem);
-  };
-
-  const drop = (e,dragItem, dragOverItem) => {
-    console.log("index", dragItem, dragOverItem, e)
-    reorderList(dragItem, dragOverItem)
-    // const copyListItems = [...todoList];
-    // const dragItemContent = copyListItems[dragItem.current];
-    // copyListItems.splice(dragItem.current, 1);
-    // copyListItems.splice(dragOverItem.current, 0, dragItemContent);
-    // dragItem.current = null;
-    // dragOverItem.current = null;
-    // console.log("item", todoList);
-    // console.log("new list", copyListItems);
-    // setList(copyListItems);
-  };
-
-
+  const { todoList, changeItemStatus, deleteItem } = useTodo()
 
   return (
-    <div
+    <li
       className={status ? "checked todo-task" : "todo-task"}
       id={id}
       index={index}
-      draggable
-      onDragStart={(e) => dragStart(e)}
-      onDragEnter={(e) => dragEnter(e)}
-      onDragEnd={(e) => drop(e,dragItem, dragOverItem)}
+      key={id}
     >
       <div className="border">
         <input
@@ -60,7 +29,11 @@ const TodoTask = ({ content, status, id, index }) => {
           onClick={() => changeItemStatus(id)}
         />
       </div>
-      <div className="todo-content" onClick={() => changeItemStatus(id)}>
+      <div
+        className="todo-content"
+        index={index}
+        onClick={() => changeItemStatus(id)}
+      >
         {content}
       </div>
       <img
@@ -69,8 +42,8 @@ const TodoTask = ({ content, status, id, index }) => {
         className="cross-icon"
         onClick={() => deleteItem(id)}
       />
-    </div>
-  );
-};
+    </li>
+  )
+}
 
 export default TodoTask;

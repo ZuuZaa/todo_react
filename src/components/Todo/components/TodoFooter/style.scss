@@ -4,16 +4,18 @@
   user-select: none;
   margin-bottom: 2rem;
   font-size: 1.4rem;
-  height: 100%;
+
   .desktop-footer {
     display: flex;
     border-radius: 0 0 0.5rem 0.5rem;
     padding: 2rem;
     justify-content: space-between;
   }
+
   .mobile-footer {
     display: none;
   }
+
   ul {
     list-style: none;
     display: flex;
@@ -31,6 +33,7 @@
 
     .footer-link {
       color: colors.$dark-grayish-blue-light-theme;
+
       &:hover {
         transition: all 0.3s ease-in-out;
       }
@@ -38,18 +41,22 @@
 
     .active {
       color: colors.$bright-blue;
+
       &:hover {
         color: colors.$dark-blue;
         transition: all 0.3s ease-in-out;
       }
     }
   }
+
   .left {
     padding-right: 0.5rem;
   }
+
   .clear-completed {
     text-transform: capitalize;
     cursor: pointer;
+
     &:hover {
       transition: all 0.3s ease-in-out;
     }
@@ -62,14 +69,18 @@
 }
 
 #dark {
+
   .top-container,
   .bottom-container,
   .desktop-footer {
     background-color: colors.$very-dark-desaturated-blue;
   }
-  .todo-footer{
+
+  .todo-footer {
     color: colors.$dark-grayish-blue;
-    .footer-link, .clear-completed {
+
+    .footer-link,
+    .clear-completed {
       &:hover {
         color: colors.$light-grayish-blue;
       }
@@ -78,14 +89,18 @@
 }
 
 #light {
+
   .top-container,
   .bottom-container,
   .desktop-footer {
     background-color: colors.$very-light-gray;
   }
-  .todo-footer{
+
+  .todo-footer {
     color: colors.$dark-grayish-blue-light-theme;
-    .footer-link, .clear-completed {
+
+    .footer-link,
+    .clear-completed {
       &:hover {
         color: colors.$very-dark-grayish-blue-light-theme;
       }
@@ -97,16 +112,19 @@
   .todo-footer {
     .mobile-footer {
       display: block;
+
       .top-container,
       .bottom-container {
         padding: 2rem;
       }
+
       .top-container {
         display: flex;
         justify-content: space-between;
         border-radius: 0 0 0.5rem 0.5rem;
         color: colors.$dark-grayish-blue;
       }
+
       .bottom-container {
         display: flex;
         justify-content: center;
@@ -114,9 +132,11 @@
         border-radius: 0.5rem;
       }
     }
+
     .desktop-footer {
       display: none;
     }
+
     .footer-link {
       font-size: 1.4rem;
     }

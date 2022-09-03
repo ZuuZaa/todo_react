@@ -3,10 +3,7 @@
 .todo-task {
   display: flex;
   align-items: center;
-  cursor: move;
-  &[draggable="false"] {
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   &:first-child {
     border-radius: 0.5rem 0.5rem 0 0;
@@ -63,6 +60,7 @@
   .todo-content {
     cursor: pointer;
     width: 100%;
+    padding: 2rem 1rem;
   }
 
   .cross-icon {
