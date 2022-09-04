@@ -1,56 +1,48 @@
-import "./style.scss";
 import { useTodo } from "contexts/todo";
-import TodoTask from "components/Todo/components/TodoTask";
 import _ from "lodash";
 import NoData from "../components/NoData";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import {DraggableTask, TodoTask} from "../components/TodoTask";
+import DroppableList from "../components/DroppableList";
 
 export const ActiveTodos = () => {
   const { todoList, activeTodos } = useTodo();
 
   return (
-    <ul className="todo-list">
+    <DroppableList>
       {_.isEmpty(activeTodos()) ? (
         <NoData />
       ) : (
-        todoList.map(
-          (item, index) =>
-            !item.status && (
-              <TodoTask
-                content={item.content}
-                id={item.id}
-                status={item.status}
-                key={item.id}
-                index={index}
-              />
-            )
-        )
+                activeTodos().map((item, index) => (
+                  <DraggableTask
+                    content={item.content}
+                    id={item.id}
+                    status={item.status}
+                    key={item.id}
+                    index={index}
+                  />
+                ))
       )}
-    </ul>
+    </DroppableList>
   );
 };
 
 export const CompletesTodos = () => {
-  const { todoList, completedTodos } = useTodo();
+  const { completedTodos } = useTodo();
   return (
-    <div className="todo-list">
+    <ul className="todo-list">
       {_.isEmpty(completedTodos()) ? (
         <NoData />
       ) : (
-        todoList.map(
-          (item, index) =>
-            item.status && (
+        completedTodos().map(item =>
               <TodoTask
                 content={item.content}
                 id={item.id}
                 status={item.status}
                 key={item.id}
-                index={index}
               />
-            )
         )
       )}
-    </div>
+    </ul>
   );
 };
 
@@ -58,26 +50,16 @@ export const AllTodos = () => {
   const { todoList } = useTodo();
 
   return (
-    <div className="todo-list">
-      <DragDropContext>
-        <Droppable droppableId="to-dos">
-          {(provided) => (
-            <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {todoList.map((item, index) => (
-
-                <TodoTask
-                  content={item.content}
-                  id={item.id}
-                  status={item.status}
-                  key={item.id}
-                  index={index}
-                />
-              ))}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
-    </div>
+    <DroppableList>
+            {todoList.map((item, index) => (
+              <DraggableTask
+                content={item.content}
+                id={item.id}
+                status={item.status}
+                key={item.id}
+                index={index}
+              />
+            ))}
+    </DroppableList>
   );
 };

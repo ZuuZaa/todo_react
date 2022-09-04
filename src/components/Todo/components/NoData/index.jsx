@@ -2,9 +2,9 @@ import "./style.scss";
 
 const NoData = () => {
     return(
-        <div className="no-data">
+        <li className="no-data">
             ---- no data ----
-        </div>
+        </li>
     )
 }
 export default NoData;
