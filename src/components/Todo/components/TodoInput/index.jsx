@@ -1,4 +1,5 @@
 import { useTodo } from "contexts/todo";
+import { nanoid } from "nanoid";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
@@ -7,7 +8,7 @@ const TodoInput = () => {
 
   const [todo, setTodo] = useState({});
   const { newTodo } = useTodo();
-  const id = new Date().getTime();
+  const id = nanoid();
   const navigate = useNavigate();
 
   const handleChange = () => (event) => {

@@ -56,18 +56,28 @@ export const CompletesTodos = () => {
 
 export const AllTodos = () => {
   const { todoList } = useTodo();
-  
+
   return (
-        <div className="todo-list">
-          {todoList.map((item, index) => (
-            <TodoTask
-              content={item.content}
-              id={item.id}
-              status={item.status}
-              key={item.id}
-              index={index}
-            />
-          ))}
-        </div>
+    <div className="todo-list">
+      <DragDropContext>
+        <Droppable droppableId="to-dos">
+          {(provided) => (
+            <ul {...provided.droppableProps} ref={provided.innerRef}>
+              {todoList.map((item, index) => (
+
+                <TodoTask
+                  content={item.content}
+                  id={item.id}
+                  status={item.status}
+                  key={item.id}
+                  index={index}
+                />
+              ))}
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const TodoContext = createContext(null);
 const todoListFromLocalStorage = JSON.parse(localStorage.getItem("todos")) ? JSON.parse(localStorage.getItem("todos")).todoList : [];
@@ -53,6 +53,9 @@ const useTodo = () => {
 
 const TodoProvider = ({ children }) => {
     const [todoList, setTodoList] = useState(todoListFromLocalStorage);
+    useEffect(() => {
+        console.log(todoList);
+      }, [todoList]);
     return (
         <TodoContext.Provider value={[todoList, setTodoList]}>
             {children}
