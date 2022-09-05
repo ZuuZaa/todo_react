@@ -1,4 +1,3 @@
-import "./style.scss";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 const DroppableList = ({children}) => {

@@ -1,8 +1,9 @@
 import { useTodo } from "contexts/todo";
 import _ from "lodash";
 import NoData from "../components/NoData";
-import {DraggableTask, TodoTask} from "../components/TodoTask";
+import { DraggableTask, TodoTask } from "../components/TodoTask";
 import DroppableList from "../components/DroppableList";
+import { lightTheme } from "assets/themes";
 
 export const ActiveTodos = () => {
   const { todoList, activeTodos } = useTodo();
@@ -12,15 +13,19 @@ export const ActiveTodos = () => {
       {_.isEmpty(activeTodos()) ? (
         <NoData />
       ) : (
-                activeTodos().map((item, index) => (
-                  <DraggableTask
-                    content={item.content}
-                    id={item.id}
-                    status={item.status}
-                    key={item.id}
-                    index={index}
-                  />
-                ))
+        todoList.map((item, index) => (
+          <>
+            {!item.status && (
+              <DraggableTask
+                content={item.content}
+                id={item.id}
+                status={item.status}
+                key={item.id}
+                index={index}
+              />
+            )}
+          </>
+        ))
       )}
     </DroppableList>
   );
@@ -33,14 +38,14 @@ export const CompletesTodos = () => {
       {_.isEmpty(completedTodos()) ? (
         <NoData />
       ) : (
-        completedTodos().map(item =>
-              <TodoTask
-                content={item.content}
-                id={item.id}
-                status={item.status}
-                key={item.id}
-              />
-        )
+        completedTodos().map((item) => (
+          <TodoTask
+            content={item.content}
+            id={item.id}
+            status={item.status}
+            key={item.id}
+          />
+        ))
       )}
     </ul>
   );
@@ -51,15 +56,15 @@ export const AllTodos = () => {
 
   return (
     <DroppableList>
-            {todoList.map((item, index) => (
-              <DraggableTask
-                content={item.content}
-                id={item.id}
-                status={item.status}
-                key={item.id}
-                index={index}
-              />
-            ))}
+      {todoList.map((item, index) => (
+        <DraggableTask
+          content={item.content}
+          id={item.id}
+          status={item.status}
+          key={item.id}
+          index={index}
+        />
+      ))}
     </DroppableList>
   );
 };
