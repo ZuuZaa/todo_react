@@ -1,3 +1,4 @@
+import { set } from "lodash";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const TodoContext = createContext(null);
@@ -33,15 +34,11 @@ const useTodo = () => {
 
     const reorderList = (dragIndex, dragOverIndex) => {
         const copyListItems = [...todoList];
-      //  console.log("copy", copyListItems);
-        const dragItem = copyListItems[dragIndex];
+        const dragItemContent = copyListItems[dragIndex];
         copyListItems.splice(dragIndex, 1);
-       // console.log("pop",[...copyListItems] );
-        console.log("dragOver", dragOverIndex)
-        copyListItems.splice(dragOverIndex, 0, dragItem);
-        console.log("push",[...copyListItems] );
-       // console.log("reorder", copyListItems);
-        setTodoList([...copyListItems]);
+        copyListItems.splice(dragOverIndex, 0, dragItemContent);
+        console.log(copyListItems)
+        setTodoList([...copyListItems])
     }
 
     const leftItems = () => todoList.filter(item => !item.status).length;
