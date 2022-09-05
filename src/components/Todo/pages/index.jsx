@@ -3,7 +3,6 @@ import _ from "lodash";
 import NoData from "../components/NoData";
 import { DraggableTask, TodoTask } from "../components/TodoTask";
 import DroppableList from "../components/DroppableList";
-import { lightTheme } from "assets/themes";
 
 export const ActiveTodos = () => {
   const { todoList, activeTodos } = useTodo();

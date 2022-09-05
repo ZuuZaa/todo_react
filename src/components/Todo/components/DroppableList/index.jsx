@@ -1,6 +1,14 @@
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 const DroppableList = ({children}) => {
+
+  //   const dragEnd = result => {
+  //     console.log(result)
+  //     if (!result.destination) {
+  //       return;
+  //   }
+  // }
+
     return (
         <DragDropContext>
         <Droppable droppableId="to-dos">
