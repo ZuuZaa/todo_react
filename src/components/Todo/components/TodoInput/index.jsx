@@ -12,7 +12,7 @@ const TodoInput = () => {
   const navigate = useNavigate();
 
   const handleChange = () => (event) => {
-    const data = {id, content: event.target.value, status: false};
+    const data = {id, content: event.target.value, status: false, index:null};
     setTodo(data);
   }
 

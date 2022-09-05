@@ -1,8 +1,9 @@
 import CheckIcon from "../../../../assets/icons/icon-check.svg";
 import CrossIcon from "../../../../assets/icons/icon-cross.svg";
 import { useTodo } from "contexts/todo";
+import "./style.scss";
 
-const TaskContent = ({ content, status, id }) => {
+const TaskContent = ({ content, status, id, index }) => {
   const { changeItemStatus, deleteItem } = useTodo();
 
   return (
@@ -12,6 +13,7 @@ const TaskContent = ({ content, status, id }) => {
           type="checkbox"
           className="todo-check"
           checked={status}
+          index={index}
           onChange={() => changeItemStatus(id)}
         />
         <img
@@ -19,10 +21,12 @@ const TaskContent = ({ content, status, id }) => {
           className="check-icon"
           alt="check icon"
           onClick={() => changeItemStatus(id)}
+          index={index}
         />
       </div>
       <div
         className="todo-content"
+        index={index}
         onClick={() => changeItemStatus(id)}
       >
         {content}
@@ -30,6 +34,7 @@ const TaskContent = ({ content, status, id }) => {
       <img
         src={CrossIcon}
         alt="cross icon"
+        index={index}
         className="cross-icon"
         onClick={() => deleteItem(id)}
       />
