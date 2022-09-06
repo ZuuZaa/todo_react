@@ -8,7 +8,7 @@ import { DraggableList, TodoList } from "../components/TodoList";
 export const ActiveTodos = () => {
 
   const { activeTodos } = useTodo();
-  return <DraggableList data={activeTodos()}/>;
+  return <DraggableList sort="active"/>;
 }
 
 export const CompletesTodos = () => {
@@ -33,6 +33,6 @@ export const CompletesTodos = () => {
 export const AllTodos = () =>{
   
   const { todoList } = useTodo();
-  return <DraggableList data={todoList}/>
+  return <DraggableList sort="all"/>
 
 } ;

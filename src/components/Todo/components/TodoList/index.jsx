@@ -4,11 +4,14 @@ import { useState } from "react";
 import TaskContent from "../TaskContent";
 
 
-export const DraggableList = ({data}) => {
+export const DraggableList = () => {
 
-    const { reorderList } = useTodo();
+    const { todoList, reorderList, activeTodos, completedTodos } = useTodo();
     const [dragItem, setDragItem] = useState(null);
     const [dragOverItem, setDragOverItem] = useState(null);
+    const listType = "";
+    const [newArr, setNewArray] = useState([]);
+    
   
     const dragStart = (e) => setDragItem(e.target.getAttribute("index"));
 
@@ -27,24 +30,27 @@ export const DraggableList = ({data}) => {
   
     return (
       <ul className="todo-list">
-        {data.map((item, index) => (
-          <li
-            className="todo-task"
-            key={item.id}
-            index={index}
-            draggable
-            onDragStart={dragStart}
-            onDragOver={dragOver}
-            onDragEnter={dragEnter}
-            onDrop={dragDrop}
-          > 
-          <TaskContent
-              content={item.content}
-              status={item.status}
-              id={item.id}
-              key={item.id}
-            />
-          </li>
+        {todoList.map((item, index) => (
+          setNewArray([...todoList])
+
+          
+          // <li
+          //   className="todo-task"
+          //   key={item.id}
+          //   index={index}
+          //   draggable
+          //   onDragStart={dragStart}
+          //   onDragOver={dragOver}
+          //   onDragEnter={dragEnter}
+          //   onDrop={dragDrop}
+          // > 
+          // <TaskContent
+          //     content={item.content}
+          //     status={item.status}
+          //     id={item.id}
+          //     key={item.id}
+          //   />
+          // </li>
         ))}
       </ul>
     );

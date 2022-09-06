@@ -8,10 +8,10 @@ const useTodo = () => {
     const [todoList, setTodoList] = useContext(TodoContext);
 
     const newTodo = (value) => {
+        value.index = todoList.length;
         setTodoList([...todoList, value]);
         localStorage.setItem("todos", JSON.stringify({ todoList }));
     };
-
 
     const changeItemStatus = (id) => {
         const itemToChange = todoList.filter(item => item.id === id );
