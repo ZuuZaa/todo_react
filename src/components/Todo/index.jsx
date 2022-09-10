@@ -5,10 +5,13 @@ import TodoFooter from "./components/TodoFooter";
 import { Outlet } from "react-router-dom";
 import _ from "lodash";
 import { useTodo } from "contexts/todo";
+import { useLocation } from 'react-router-dom'
 
 
 const Todo = () => {
   const { todoList } = useTodo();
+  const location = useLocation();
+  console.log(location.pathname);
 
   return (
     <div className="todo">

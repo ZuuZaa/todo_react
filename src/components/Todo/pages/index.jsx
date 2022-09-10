@@ -1,38 +1,66 @@
 import { useTodo } from "contexts/todo";
 import _ from "lodash";
 import NoData from "../components/NoData";
-import { useState } from "react";
 import TaskContent from "../components/TaskContent";
-import { DraggableList, TodoList } from "../components/TodoList";
+import { DraggableList } from "../components/TodoList";
 
-export const ActiveTodos = () => {
-
-  const { activeTodos } = useTodo();
-  return <DraggableList sort="active"/>;
-}
+    export const ActiveTodos = () => {
+      const { todoList, activeTodos } = useTodo();
+      return (
+        <DraggableList>
+          {_.isEmpty(activeTodos()) ? (
+            <NoData />
+          ) : (
+            todoList.map((item, index) => (
+              !item.status &&
+              <TaskContent
+                content={item.content}
+                status={item.status}
+                id={item.id}
+                key={item.id}
+                index={index}
+              />
+            ))
+          )}
+        </DraggableList>
+      );
+    };
 
 export const CompletesTodos = () => {
-  const { completedTodos } = useTodo();
+  const { todoList, completedTodos } = useTodo();
   return (
-    <ul className="todo-list">
+    <DraggableList>
       {_.isEmpty(completedTodos()) ? (
         <NoData />
       ) : (
-        completedTodos().map((item) => (
+        todoList.map((item, index) => (
+          item.status &&
           <TaskContent
             content={item.content}
             status={item.status}
             id={item.id}
+            key={item.id}
+            index={index}
           />
         ))
       )}
-    </ul>
+    </DraggableList>
   );
 };
 
-export const AllTodos = () =>{
-  
+export const AllTodos = () => {
   const { todoList } = useTodo();
-  return <DraggableList sort="all"/>
-
-} ;
+  return (
+    <DraggableList>
+      {todoList.map((item, index) => (
+        <TaskContent
+          content={item.content}
+          status={item.status}
+          id={item.id}
+          key={item.id}
+          index={index}
+        />
+      ))}
+    </DraggableList>
+  );
+};

@@ -5,16 +5,15 @@ import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
 const TodoInput = () => {
-
   const [todo, setTodo] = useState({});
   const { newTodo } = useTodo();
   const id = nanoid();
   const navigate = useNavigate();
 
   const handleChange = () => (event) => {
-    const data = {id, content: event.target.value, status: false, index:null};
+    const data = { id, content: event.target.value, status: false };
     setTodo(data);
-  }
+  };
 
   const formSubmit = (e) => {
     e.preventDefault();

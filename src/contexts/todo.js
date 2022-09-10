@@ -8,7 +8,6 @@ const useTodo = () => {
     const [todoList, setTodoList] = useContext(TodoContext);
 
     const newTodo = (value) => {
-        value.index = todoList.length;
         setTodoList([...todoList, value]);
         localStorage.setItem("todos", JSON.stringify({ todoList }));
     };
@@ -37,7 +36,7 @@ const useTodo = () => {
         const dragItemContent = copyListItems[dragIndex];
         copyListItems.splice(dragIndex, 1);
         copyListItems.splice(dragOverIndex, 0, dragItemContent);
-        console.log(copyListItems)
+        console.log("reorder", copyListItems)
         setTodoList([...copyListItems])
     }
 
