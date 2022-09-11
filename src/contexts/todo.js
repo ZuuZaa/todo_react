@@ -8,26 +8,22 @@ const useTodo = () => {
 
     const newTodo = (value) => {
         setTodoList([...todoList, value]);
-        localStorage.setItem("todos", JSON.stringify({ todoList }));
     };
 
     const changeItemStatus = (id) => {
         const itemToChange = todoList.filter(item => item.id === id);
         itemToChange[0].status = !itemToChange[0].status;
         setTodoList([...todoList]);
-        localStorage.setItem("todos", JSON.stringify({ todoList }));
     }
 
     const deleteItem = (id) => {
         const index = todoList.findIndex(item => item.id === id)
         todoList.splice(index, 1);
         setTodoList([...todoList]);
-        localStorage.setItem("todos", JSON.stringify({ todoList }));
     }
 
     const clearCompleted = () => {
         setTodoList([...todoList.filter(item => !item.status)]);
-        localStorage.setItem("todos", JSON.stringify({ todoList }));
     }
 
     const reorderList = (dragIndex, dragOverIndex) => {
@@ -36,7 +32,6 @@ const useTodo = () => {
         copyListItems.splice(dragIndex, 1);
         copyListItems.splice(dragOverIndex, 0, dragItemContent);
         setTodoList([...copyListItems])
-        localStorage.setItem("todos", JSON.stringify({ todoList }));
     }
 
     const leftItems = () => todoList.filter(item => !item.status).length;
@@ -57,10 +52,13 @@ const useTodo = () => {
 };
 
 const TodoProvider = ({ children }) => {
+
     const [todoList, setTodoList] = useState(todoListFromLocalStorage);
+
     useEffect(() => {
-        console.log(todoList);
+        localStorage.setItem("todos", JSON.stringify({ todoList }));
     }, [todoList]);
+
     return (
         <TodoContext.Provider value={[todoList, setTodoList]}>
             {children}
