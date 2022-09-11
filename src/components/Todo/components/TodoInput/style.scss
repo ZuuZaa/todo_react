@@ -17,10 +17,12 @@
 
   .text-input {
     font-size: 1.8rem;
-    font-family: "Josefin Sans", sans-serif;    line-height: 5rem;
+    font-family: "Josefin Sans", sans-serif;
+    line-height: 5rem;
     border: none;
     width: 100%;
     background-color: transparent;
+
     &:focus {
       outline: none;
     }
@@ -30,9 +32,11 @@
 #dark {
   .todo-input {
     background-color: colors.$very-dark-desaturated-blue;
+
     .checkbox {
       border: 1.2px solid colors.$very-dark-grayish-blue-2;
     }
+
     .text-input {
       color: colors.$dark-grayish-blue;
     }
@@ -42,11 +46,14 @@
 #light {
   .todo-input {
     background-color: colors.$very-light-gray;
+
     .checkbox {
       border: 1.2px solid colors.$very-light-grayish-blue;
     }
+
     .text-input {
       color: colors.$very-dark-grayish-blue-light-theme;
+
       &::placeholder {
         color: colors.$light-grayish-blue-light-theme;
       }
@@ -57,9 +64,11 @@
 @media only screen and (max-width: 600px) {
   .todo-input {
     margin: 1.5rem 0;
+
     .checkbox {
       margin: 1.2rem;
     }
+
     .text-input {
       font-size: 1.4rem;
     }

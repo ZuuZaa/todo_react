@@ -1,7 +1,7 @@
 import "./style.scss";
 
 const NoData = () => {
-    return(
+    return (
         <li className="no-data">
             ---- no data ----
         </li>

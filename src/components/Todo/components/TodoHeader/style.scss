@@ -1,22 +1,24 @@
 @use "assets/scss/colors";
 
 .todo-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: colors.$very-light-gray;
-    text-transform: uppercase;
-    letter-spacing: 1.8rem;
-    font-size: 2.2rem;
-    h1 {
-        user-select: none;
-        margin: 3rem 0;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: colors.$very-light-gray;
+  text-transform: uppercase;
+  letter-spacing: 1.8rem;
+  font-size: 2.2rem;
+
+  h1 {
+    user-select: none;
+    margin: 3rem 0;
+  }
 }
+
 @media only screen and (max-width: 600px) {
-    .todo-header {
-      h1{
-        font-size: 2.8rem;
-      }
+  .todo-header {
+    h1 {
+      font-size: 2.8rem;
     }
   }
+}

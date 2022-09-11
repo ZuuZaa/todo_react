@@ -1,4 +1,4 @@
-@use "../../../../assets/scss/colors.scss";
+@use "assets/scss/colors.scss";
 
 .no-data {
     text-align: center;
@@ -12,6 +12,7 @@
     background-color: colors.$very-light-gray;
     border-bottom: 0.1rem solid colors.$very-light-grayish-blue;
 }
+
 #dark .no-data {
     color: colors.$light-grayish-blue;
     background-color: colors.$very-dark-desaturated-blue;
@@ -23,4 +24,4 @@
         font-size: 1.4rem;
         padding: 1.4rem;
     }
-  }
+}

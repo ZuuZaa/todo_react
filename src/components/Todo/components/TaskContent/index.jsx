@@ -1,7 +1,7 @@
+import "./style.scss";
 import CheckIcon from "../../../../assets/icons/icon-check.svg";
 import CrossIcon from "../../../../assets/icons/icon-cross.svg";
 import { useTodo } from "contexts/todo";
-import "./style.scss";
 import { useState } from "react";
 
 const TaskContent = ({ content, status, id, index }) => {
