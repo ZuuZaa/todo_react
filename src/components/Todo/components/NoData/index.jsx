@@ -1,9 +1,9 @@
 import "./style.scss";
 
-const NoData = () => {
+const NoData = ({message}) => {
     return (
         <li className="no-data">
-            ---- no data ----
+            ---- {message} ----
         </li>
     )
 }

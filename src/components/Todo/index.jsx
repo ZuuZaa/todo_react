@@ -15,8 +15,8 @@ const Todo = () => {
       <div className="todo-container">
         <TodoHeader />
         <TodoInput />
-        {!_.isEmpty(todoList) && <Outlet />}
-        {!_.isEmpty(todoList) && <TodoFooter />}
+        <Outlet />
+        <TodoFooter />
       </div>
     </div>
   );

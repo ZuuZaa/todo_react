@@ -9,7 +9,7 @@ export const ActiveTodos = () => {
   return (
     <DraggableList>
       {_.isEmpty(activeTodos()) ? (
-        <NoData />
+        <NoData message="no data"/>
       ) : (
         todoList.map((item, index) => (
           !item.status &&
@@ -31,7 +31,7 @@ export const CompletesTodos = () => {
   return (
     <DraggableList>
       {_.isEmpty(completedTodos()) ? (
-        <NoData />
+        <NoData message="no data"/>
       ) : (
         todoList.map((item, index) => (
           item.status &&
@@ -51,16 +51,32 @@ export const CompletesTodos = () => {
 export const AllTodos = () => {
   const { todoList } = useTodo();
   return (
-    <DraggableList>
-      {todoList.map((item, index) => (
-        <TaskContent
-          content={item.content}
-          status={item.status}
-          id={item.id}
-          key={item.id}
-          index={index}
-        />
-      ))}
+<DraggableList>
+      {_.isEmpty(todoList) ? (
+        <NoData message="add new todo"/>
+      ) : (
+        todoList.map((item, index) => (
+          <TaskContent
+            content={item.content}
+            status={item.status}
+            id={item.id}
+            key={item.id}
+            index={index}
+          />
+        ))
+      )}
     </DraggableList>
+
+    // <DraggableList>
+    //   {todoList.map((item, index) => (
+    //     <TaskContent
+    //       content={item.content}
+    //       status={item.status}
+    //       id={item.id}
+    //       key={item.id}
+    //       index={index}
+    //     />
+    //   ))}
+    // </DraggableList>
   );
 };
