@@ -65,6 +65,12 @@
   .reorder {
     text-align: center;
     padding: 2rem 0;
+    p{
+      line-height: 2;
+    }
+    a {
+      color: inherit;
+    }
   }
 }
 

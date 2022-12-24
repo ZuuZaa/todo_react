@@ -1,5 +1,5 @@
 import { useTodo } from "contexts/todo";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./style.scss";
 
 const TodoFooter = () => {
@@ -71,7 +71,13 @@ const TodoFooter = () => {
           clear completed
         </div>
       </div>
-      <div className="reorder">Drag and drop to reorder list</div>
+      <div className="reorder">
+        <p>Drag and drop to reorder list</p>
+        <p>
+        Challenge by <Link to="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</Link>.
+        Coded by <Link to="https://zumrudsportfolio.netlify.app/">Zumrud Nerman</Link>.
+        </p>
+        </div>
     </div>
   );
 };
