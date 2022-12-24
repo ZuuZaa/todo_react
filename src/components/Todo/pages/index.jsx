@@ -55,7 +55,7 @@ export const AllTodos = () => {
       {_.isEmpty(todoList) ? (
         <NoData message="add new todo" />
       ) : (
-        todoList.slice(0).reverse().map((item, index) => (
+        todoList.map((item, index) => (
           <TaskContent
             content={item.content}
             status={item.status}
