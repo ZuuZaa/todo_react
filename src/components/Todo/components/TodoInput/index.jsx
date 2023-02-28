@@ -1,25 +1,25 @@
 import { useTodo } from "contexts/todo";
 import { nanoid } from "nanoid";
-import { useState } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
 const TodoInput = () => {
-  const [todo, setTodo] = useState({});
-  const { newTodo } = useTodo();
+
   const id = nanoid();
   const navigate = useNavigate();
-
-  const handleChange = () => (event) => {
-    const data = { id, content: event.target.value, status: false };
-    setTodo(data);
-  };
+  const textInput = useRef()
+  const { newTodo } = useTodo();
 
   const formSubmit = (e) => {
     e.preventDefault();
-    newTodo(todo);
-    e.target.reset();
-    navigate("/");
+    const content = textInput.current.value.trim()
+    console.log(content)
+    if (content) {
+      newTodo({ id, content });
+      e.target.reset();
+      navigate("/");
+    }
   };
 
   return (
@@ -27,9 +27,9 @@ const TodoInput = () => {
       <input type="checkbox" className="checkbox" disabled />
       <input
         type="text"
+        ref={textInput}
         className="text-input"
         placeholder="Create a new todo..."
-        onChange={handleChange()}
       />
     </form>
   );

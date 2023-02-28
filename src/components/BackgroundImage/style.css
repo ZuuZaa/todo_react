@@ -1,0 +1,30 @@
+.background-image {
+  background-size: cover;
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  #dark .background-image {
+    background-image: url("../../assets/images/bg-desktop-dark.jpg");
+    height: 30rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #dark .background-image {
+    background-image: url("../../assets/images/bg-mobile-dark.jpg");
+    height: 20rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #light .background-image {
+    background-image: url("../../assets/images/bg-desktop-light.jpg");
+    height: 30rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #light .background-image {
+    background-image: url("../../assets/images/bg-mobile-light.jpg");
+    height: 20rem;
+  }
+}/*# sourceMappingURL=style.css.map */
